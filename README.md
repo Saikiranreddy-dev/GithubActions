@@ -24,3 +24,52 @@ jobs:
 _**
 
 the steps in jobs excuted sequentially if one is failed thw workflow will be fails 
+
+when we transfer the data on api/to save in file /sharing on other computer we might need to send in specific format so json or yaml which is serialization language which focus on data they can send and rebuild later by us.
+
+when we execute in command prompt we use **yq** to parse the yaml file
+we use three dashes --- to indicate the start of yaml file
+
+############
+### Data Types###
+###########
+strings
+integer
+boolean
+null 
+alternative null "~";
+binary values
+quotaion ------>must include in "";
+string some time misinterpret so we use "";
+here we can have spaces in keys;
+for multiline string we use : |(block literal to say it is multiline to yaml)
+for folded text becomes spaces unless we give explicitly that >(symbol)  : >
+and we use sed command to excute one particular line -n for multiple lines 
+from file name and giving to yq to parse and -o for output =props;
+
+sed -n"line1,line2p" filename | yq -o=props
+sed -n"line1,line2p" filename | yq ".* | type "
+
+|-  -> which adds a trailing new lines like \n into the format
+
+nested structure:
+use indentation and write key value pairs
+
+and we can also have float keys
+
+we can use list
+
+list:
+  -element1
+  -elemrnt 2
+  -key value pairs
+  --nested list 
+    -element 3
+  ---nested list 
+      -element 4
+ 
+json format 
+json:{"map":element1}
+
+
+--- declaring the second yaml file
