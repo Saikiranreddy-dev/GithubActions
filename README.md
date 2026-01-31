@@ -12,3 +12,13 @@ event->triggers workflow-> we are doing our job/work -> we are cleaning up -> th
 4.runners->the runners are servers which runs on seperate servers
 5.actions -->which automates repeated task
 **
+
+**_each events have a workflow file that contains
+name:
+on:--->event
+jobs:
+  jobA:
+    runs-on🪟;
+  jobB:
+    runs-on🪟;
+_**
