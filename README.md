@@ -22,3 +22,5 @@ jobs:
   jobB:
     runs-on🪟;
 _**
+
+the steps in jobs excuted sequentially if one is failed thw workflow will be fails 
