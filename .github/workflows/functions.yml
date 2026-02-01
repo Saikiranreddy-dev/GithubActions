@@ -1,6 +1,6 @@
-name: buiding 
+name: functions
 
-run-name: running a file
+run-name: running a function file
 
 on: 
   workflow_dispatch:
