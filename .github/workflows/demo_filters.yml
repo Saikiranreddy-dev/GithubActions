@@ -1,0 +1,27 @@
+name: buiding 
+
+run-name: running a file
+
+on: 
+  push:
+      branches:
+          - main
+          - "!test/**"
+          - "feature/**"
+      paths-ignore:
+          - README.md
+          - "resource/**"
+  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a single line script
+        run : echo "Hello World !"
+      - name: Run a Multi line script
+        run : |
+            echo "add other actions to build",
+            echo test, and deploy your project.
+      
