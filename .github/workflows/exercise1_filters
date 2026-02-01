@@ -6,11 +6,11 @@ on:
   push:
       branches:
           - main
-          - '!test/**'
-          - 'feature/**'
+          - "!test/**"
+          - "feature/**"
       paths:
           - README.md
-          - 'resource/**'
+          - "resource/**"
   
 
 jobs:
