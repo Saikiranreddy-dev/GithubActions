@@ -5,9 +5,9 @@ run-name: run of simple workflow
 on: 
   push:
       branches:
-            - main
-            - '!test/**'
-            - 'feature/**'
+          - main
+          - '!test/**'
+          - 'feature/**'
       paths:
           - README.md
           - 'resource/**'
