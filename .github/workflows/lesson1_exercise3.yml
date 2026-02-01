@@ -17,8 +17,8 @@ jobs:
       - uses: actions/setup-node@v6
         with: 
            node-version: 24
-      - run: npm ci
-      - run: npm test
+      - name: run a node command
+        run: node -e "console log('running from node')"
       
   build:
     runs-on: ubuntu-latest
