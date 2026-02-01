@@ -19,5 +19,5 @@ jobs:
         env:
           contains: ${{ contains('github events','Evecolonts')}}
           format: ${{ format('this is {0}{1}','too','cool')}}
-          tojson: ${{toJSON('github')}}
+          tojson: ${{toJSON(github)}}
           
