@@ -1,6 +1,6 @@
-name: lesson2_excercise3
+name: concurency
 
-run-name: run of file when it reruns more than 2 times
+run-name: run of file concurency
 
 on: 
   push:
