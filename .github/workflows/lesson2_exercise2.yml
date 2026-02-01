@@ -1,0 +1,36 @@
+name: lesson2_excercise2
+
+run-name: run of file when content changes in job 1
+
+on: 
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      state: ${{steps.build_check.outputs.state}}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a single line script
+        id: build_check
+        run : |
+          if [ $((RANDOM % 2)) -eq 0]; then
+            echo "state=run" >>$GITHUB_OUTPUT
+            echo "running the job test"
+          else
+            echo "state=halt" >>$GITHUB_OUTPUT
+            echo "skipping the job test"
+  test:
+    if: ${{needs.build.outputs.state=='run'}}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: run test suite
+        run:  |
+          echo "running test"
+          sleep 5
+          exit 0
+            
+        
+      
