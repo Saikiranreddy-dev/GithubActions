@@ -1,5 +1,5 @@
-name: buiding 
-run-name: running a file
+name: expression 
+run-name: running an expression file
 on: 
   workflow_dispatch: 
 jobs:
