@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: prevent reruns
+        env:
+          MAXIMUM_ATTEMPTS: ${{vars.MAXIMUM_ATTEMPTS}}
         run : |
           if [ $RUN_ATTEMPT_NUMBER -gt $MAXIMUM_ATTEMPTS]; then
             echo "Exiting because the run number is greater than the matrix number of attempts"
