@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: prevent reruns
         run : |
-          if [ $RUN_ATTEMPT_NUMBER -gt $MAXIMUM_ATTEMPTS]; then
+          if [ "$RUN_ATTEMPT_NUMBER" -gt "$MAXIMUM_ATTEMPTS"]; then
             echo "Exiting because the run number is greater than the matrix number of attempts"
             exit 1
           fi
