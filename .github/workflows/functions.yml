@@ -1,0 +1,23 @@
+name: buiding 
+
+run-name: running a file
+
+on: 
+  workflow_dispatch:
+    
+  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: experimenting
+        run: |
+            echo $contains
+            echo $format
+            printf "$tojson"
+        env:
+          contains: ${{ 'contains("github events","Evecolonts")'}}
+          format: ${{ 'format("this is {0}{0}","too","cool")'}}
+          tojson: ${{'toJSON("github")'}}
+          
