@@ -92,4 +92,8 @@ but thereare three types of actions there
 
 
 for more runners we use githhub.com/marketplace to find suitable and use in our repositories
- 
+
+ there are three types of things
+ 1.events occur in github
+ 2.schedule
+ 3.integration outside of github
