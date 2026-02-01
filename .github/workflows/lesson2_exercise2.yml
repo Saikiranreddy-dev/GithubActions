@@ -16,10 +16,10 @@ jobs:
         id: build_check
         run : |
           if [ $((RANDOM % 2)) -eq 0]; then
-            echo "state=run" >>$GITHUB_OUTPUT
+            echo "state=run" >>"$GITHUB_OUTPUT"
             echo "running the job test"
           else
-            echo "state=halt" >>$GITHUB_OUTPUT
+            echo "state=halt" >>"$GITHUB_OUTPUT"
             echo "skipping the job test"
   test:
     if: ${{needs.build.outputs.state=='run'}}
