@@ -67,9 +67,20 @@ list:
     -element 3
   ---nested list 
       -element 4
- 
+
+
 json format 
 json:{"map":element1}
 
 
 --- declaring the second yaml file
+
+
+
+workflow main components:
+1.name ->instead of declaring by default we can have our own workflow name 
+2.run-name -> same instead of by default if we declare the run-name it will be easily identified
+3.on-> triggers the workflow events
+4.there are so many events push pull_request and workflow_dispatcher -> which is uses for manually triggering a workflow dispatcher
+
+ 
