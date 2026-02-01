@@ -1,6 +1,6 @@
-name: buiding continuoes integration
+name: buiding 
 
-run-name: run of simple workflow
+run-name: running a file
 
 on: 
   push:
