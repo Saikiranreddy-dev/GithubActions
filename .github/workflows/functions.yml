@@ -17,7 +17,7 @@ jobs:
             echo $format
             printf "$tojson"
         env:
-          contains: ${{ 'contains("github events","Evecolonts")'}}
-          format: ${{ 'format("this is {0}{0}","too","cool")'}}
-          tojson: ${{'toJSON("github")'}}
+          contains: ${{ contains('github events','Evecolonts')}}
+          format: ${{ format('this is {0}{1}','too','cool')}}
+          tojson: ${{toJSON('github')}}
           
