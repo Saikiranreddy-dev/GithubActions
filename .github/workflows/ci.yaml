@@ -1,1 +1,10 @@
+name: "buiding continuoes integration"
 
+run-name: "run of simple workflow"
+
+on: 
+  push:
+      branches: ["main"]
+  pull:
+      branches: ["main"]
+  workflow_dispatch: 
