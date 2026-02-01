@@ -21,6 +21,7 @@ jobs:
           else
             echo "state=halt" >>"$GITHUB_OUTPUT"
             echo "skipping the job test"
+          fi
   test:
     if: ${{needs.build.outputs.state=='run'}}
     needs: build
