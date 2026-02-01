@@ -10,10 +10,10 @@ jobs:
       - name: experimenting
         run: |
             echo $Hello
-            echo $t/f
-            echo event
+            echo $true
+            echo $event
         env:
           Hello: ${{'hello'}} world saikiran
-          t/f: ${{1==2}}
+          true: ${{1==2}}
           event: ${{github.event_name}}
       
