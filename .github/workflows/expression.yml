@@ -1,0 +1,19 @@
+name: buiding 
+run-name: running a file
+on: 
+  workflow_dispatch: 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: experimenting
+        run: |
+            echo $Hello
+            echo $t/f
+            echo event
+        env:
+          Hello: ${{'hello'}} world saikiran
+          t/f: ${{1==2}}
+          event: ${{github.event_name}}
+      
