@@ -104,4 +104,4 @@ for more runners we use githhub.com/marketplace to find suitable and use in our 
  level2 -> activity
  level3 -> filter
 
- we can defined in order and which both must true
+ we can defined in order and which both must true.
