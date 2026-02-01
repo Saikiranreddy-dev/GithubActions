@@ -83,4 +83,13 @@ workflow main components:
 3.on-> triggers the workflow events
 4.there are so many events push pull_request and workflow_dispatcher -> which is uses for manually triggering a workflow dispatcher
 
+
+here we are using actions on runners which is predefined from someone 
+but thereare three types of actions there
+1.docker container
+2.javascript
+3.composite actions
+
+
+for more runners we use githhub.com/marketplace to find suitable and use in our repositories
  
