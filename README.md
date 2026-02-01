@@ -97,3 +97,11 @@ for more runners we use githhub.com/marketplace to find suitable and use in our 
  1.events occur in github
  2.schedule
  3.integration outside of github
+
+ there are main components 
+ branches tags and paths to filter 
+ level1 -> events
+ level2 -> activity
+ level3 -> filter
+
+ we can defined in order and which both must true
