@@ -1,1 +1,31 @@
+name: matrices
 
+run-name: run of file matrices
+
+on: 
+  workflow_dispatch: 
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest,windows-latest]
+    runs-on: ${{matrix.os}}
+    steps:
+      - uses: actions/checkout@v4
+      - name: prevent reruns
+        run : |
+          if [ "$RUN_ATTEMPT_NUMBER" -gt "$MAXIMUM_ATTEMPTS"]; then
+            echo "Exiting because the run number is greater than the matrix number of attempts"
+            exit 1
+          fi
+        env:
+          MAXIMUM_ATTEMPTS: ${{vars.MAXIMUM_ATTEMPTS}}
+          RUN_ATTEMPT_NUMBER: ${{github.run_attempt}}
+      - name: run job
+        run: |
+          echo "Running job"
+          sleep 1;
+            
+        
+      
