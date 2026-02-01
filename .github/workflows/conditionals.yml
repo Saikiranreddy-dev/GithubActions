@@ -1,1 +1,21 @@
+name: conditionals
 
+run-name: run of conditional file
+
+on: 
+  workflow_dispatch: 
+
+jobs:
+  build:
+    if: ${{github.actor=='Saikiranreddy-dev'}}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a single line script
+        if: ${{false}}
+        run : echo "Hello World !"
+      - name: Run a Multi line script
+        run : |
+            echo "add other actions to build",
+            echo test, and deploy your project.
+      
