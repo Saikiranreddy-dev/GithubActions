@@ -18,7 +18,7 @@ jobs:
         with: 
            node-version: 24
       - name: run a node command
-        run: node -e "console log('running from node')"
+        run: node -e "console.log('running from node')"
       
   build:
     runs-on: ubuntu-latest
