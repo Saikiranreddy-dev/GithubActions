@@ -3,13 +3,22 @@ name: lesson2_excercise3
 run-name: run of file when it reruns more than 2 times
 
 on: 
+  push:
+      branches:
+        - main
+        - "releases/[0-9]"
   workflow_dispatch: 
 concurrency:
-  group: ${{github.workflow}}
-  cancel-in-progress: true
+  group: ${{github.workflow}}-${{github.ref}}
+  cancel-in-progress: ${{contains(github.ref,'releases/')}}
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest,windows-latest]
+    runs-on: ${{matrix.os}}
+    concurrency:
+      group: ${{github.job}}-${{matrix.os}}
     steps:
       - uses: actions/checkout@v4
       - name: prevent reruns
