@@ -2,10 +2,19 @@ name: "using composite"
 run-name: one of the file
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
+      
+    
 
 jobs:
-  name:
+  compile-status:
     runs-on: ubuntu-20.04
-    uses: github/checkout
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: Saikiranreddy-dev/using-composite.yml@v1
+        
+        with:
+          from-date: "2024-01-01"
+          
   
