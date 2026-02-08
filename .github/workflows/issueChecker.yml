@@ -21,8 +21,7 @@ jobs:
             await github.rest.issues.createComment({
               owner:context.repo.owner,
               repo:context.repo.repo,
-              body:`
-                message:"thanks for opening this issue" 
+              body:`thanks for opening this issue 
                 issue_number is #${context.issue.number}
                 `
             });
