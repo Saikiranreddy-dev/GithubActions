@@ -8,7 +8,7 @@ on:
 
 jobs:
   compile-status:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     outputs:
       state: ${{steps.states.outputs.state}}
     steps:
