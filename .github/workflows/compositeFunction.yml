@@ -9,12 +9,20 @@ on:
 jobs:
   compile-status:
     runs-on: ubuntu-20.04
+    outputs:
+      state: ${{steps.states.outputs.state}}
     steps:
       - uses: actions/checkout@v4
 
       - uses: Saikiranreddy-dev/using-composite.yml@v1
-        
+        id: states
         with:
           from-date: "2024-01-01"
+
+      - name: "printing the states"
+        env:
+          stateful: state
+        run: |
+          echo $stateful
           
   
