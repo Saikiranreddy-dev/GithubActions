@@ -15,16 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: executes only when the issue is opened
-        env:
-          ISSUE_NUMBER: ${{github.event.issue.number}}
         uses: actions/github-script@v7
         with:
           script: |
-            const { ISSUE_NUMBER } = process.env;
+            
             await github.rest.issues.createComment({
               owner:context.repo.owner,
               repo:context.repo.repo,
-              body:"thanks for opening this issue"+ISSUE_NUMBER
+              body:"thanks for opening this issue"
             });
       
        
