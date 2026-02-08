@@ -5,6 +5,15 @@ on:
   push:
   pull_request: 
   workflow_dispatch:
+    inputs:
+      variable:
+        description: "enter any option"
+        type: choice
+        options:
+          - regression
+          - smoke
+        default: regression
+        required: true
   
 jobs:
   test:
