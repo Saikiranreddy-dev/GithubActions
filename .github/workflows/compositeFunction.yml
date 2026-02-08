@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: Saikiranreddy-dev/using-composite.yml@v1
+      - uses: Saikiranreddy-dev/microservice-workflows@v1
         id: states
         with:
           from-date: "2024-01-01"
