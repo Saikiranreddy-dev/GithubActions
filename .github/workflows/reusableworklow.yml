@@ -3,10 +3,13 @@ run-name: running a called workflow
 
 on:
   push:
-  pull_request:
+  pull_request: 
   workflow_dispatch:
-
+  
 jobs:
   test:
-    uses: git
+    uses: Saikiranreddy-dev/microservice-workflows/.github/workflows/microservice-ci.yml@main
+    secrets: 
+      token: ${{github.token}}
+        
   
