@@ -23,7 +23,7 @@ jobs:
               repo:context.repo.repo,
               body:`
                 message:"thanks for opening this issue" 
-                issue_number is ${context.issue.number}
+                issue_number is #${context.issue.number}
                 `
             });
       
