@@ -11,5 +11,7 @@ jobs:
     uses: Saikiranreddy-dev/microservice-workflows/.github/workflows/microservice-ci.yml@main
     secrets: 
       token: ${{secrets.token}}
+    with:
+      variable1: ${{vars.variable}}
         
   
