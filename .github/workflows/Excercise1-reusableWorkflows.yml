@@ -1,0 +1,19 @@
+name: reusable workflows
+
+run-name: "getting the called file"
+
+on:
+  workflow_dispatch: 
+    inputs:
+      actor:
+        description: "the person who will recievw the greeting"
+        type: string
+        required: true
+
+
+jobs:
+   reusable:
+     uses: Saikiranreddy-dev/microservice-workflows/.github/workflows/reusable-workflows.yml@main
+     with:
+       actor: ${{inputs.actor}}
+  
