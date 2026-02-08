@@ -22,7 +22,7 @@ jobs:
               owner:context.repo.owner,
               repo:context.repo.repo,
               body:`thanks for opening this issue`,
-              issue_number:${context.issue.number}
+              issue_number:context.issue.number
             });
       
        
