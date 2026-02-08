@@ -1,1 +1,23 @@
+name: buiding issueChecker
 
+run-name: run of issue workflow
+
+on: 
+  issues:
+
+permissions: 
+  issues: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: executes only when the issue is opened
+        env:
+          issue-number: ${{github.event.issue.number}}
+          issue-body: ${{github.event.issue.body}}
+        run : |
+            echo "$issue-number",
+            echo "$issue-body"
+      
