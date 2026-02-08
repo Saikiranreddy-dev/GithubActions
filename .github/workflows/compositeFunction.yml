@@ -1,0 +1,11 @@
+name: "using composite"
+run-name: one of the file
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  name:
+    runs-on: ubuntu-20.04
+    uses: github/checkout
+  
