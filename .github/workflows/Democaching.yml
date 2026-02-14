@@ -5,7 +5,16 @@ run-name: running a variables_and_secrets file
 
 on: 
   workflow_dispatch:
-    
+    inputs:
+      variable1:
+        description: "select browser" 
+        type: choice
+        options:
+            - "chrome"
+            - "microsoft edge"
+        default: "chrome"
+        required: true
+          
   
 
 jobs:
@@ -16,6 +25,21 @@ jobs:
         uses: actions/setup-node@v6.2.0
         with:
          node-version: "20"
-    
+      - name: caching nodejs
+        id: caching-node-modules
+        uses: actions/cache@v3
+        with:
+          path: node-modules
+          key: ${{runner.os}}-cacheing-node-modules-${{hashFiles('**/package-lock.json')}}
+          restore-key: |
+            ${{runner.os}}-caching-node-modules
+      - name: cache-browsers
+        id: cache-browsers
+        uses: actions/cache@v3
+        with:
+          path: playwright-browser
+          key: ${{runner.os}}-playwright-browser-${{hashFiles('**/package-lock.json')}}
+          restore-key: |
+            ${{runner.os}}-playwright-browser    
         
   
