@@ -33,7 +33,7 @@ jobs:
         with:
           path: ~/.npm
           key: ${{runner.os}}-cacheing-node-modules-${{hashFiles('**/package-lock.json')}}
-          restore-key: |
+          restore-keys: |
             ${{runner.os}}-caching-node-modules
       - name: cache-browsers
         id: cache-browsers
@@ -41,7 +41,7 @@ jobs:
         with:
           path: ~/.cache/ms-playwright
           key: ${{runner.os}}-playwright-browser-${{hashFiles('**/package-lock.json')}}
-          restore-key: |
+          restore-keys: |
             ${{runner.os}}-playwright-browser  
       - name: install dependicies
         #if: steps.caching-node-modules.outputs.cache-hit != true
