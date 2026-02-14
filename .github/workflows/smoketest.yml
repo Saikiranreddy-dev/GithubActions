@@ -54,10 +54,6 @@ jobs:
         with:
           name: ctrf-report
           path: test-results/ctrf-report.json
-      - name: Upload CTRF report
-        if: always()
-        uses: actions/download-artifact@v4
-        with:
-          name: ctrf-report
+      
         
   
