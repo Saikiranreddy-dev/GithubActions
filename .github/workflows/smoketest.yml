@@ -21,6 +21,8 @@ jobs:
   variable:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
       - name: Setup Node.js environment
         uses: actions/setup-node@v6.2.0
         with:
@@ -43,7 +45,7 @@ jobs:
             ${{runner.os}}-playwright-browser  
       - name: install dependicies
         #if: steps.caching-node-modules.outputs.cache-hit != true
-        run: npm ci
+        run: npm ci --include-dev
       - name: install playwright browser
         #if: steps.cache-browsers.outputs.cache-hit != true
         run: npx playwright install --with-deps
