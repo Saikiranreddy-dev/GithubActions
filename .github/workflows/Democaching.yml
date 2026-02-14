@@ -40,6 +40,12 @@ jobs:
           path: playwright-browser
           key: ${{runner.os}}-playwright-browser-${{hashFiles('**/package-lock.json')}}
           restore-key: |
-            ${{runner.os}}-playwright-browser    
+            ${{runner.os}}-playwright-browser  
+      - name: install dependicies
+        if: steps.caching-node-modules.outputs.cache-hit != true
+        run: npm ci
+      - name: install playwright browser
+        if: steps.cache-browsers.outputs.cache-hit != true
+        run: npx playwright install --with-deps
         
   
