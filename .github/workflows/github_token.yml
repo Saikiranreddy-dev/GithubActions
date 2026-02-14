@@ -17,8 +17,8 @@ jobs:
         run: |
           gh  issue comment "Number" --body "$Body"
         env:
-          Gh_Token: ${{secrets.token}}
-          Gh_repo: ${{github.repository}}
+          GH_TOKEN: ${{secrets.token}}
+          GH_REPO: ${{github.repository}}
           Number: ${{github.event.issue.number}}
           Body: >
             :sparkles: thankyou raising an issue :sparkles:
