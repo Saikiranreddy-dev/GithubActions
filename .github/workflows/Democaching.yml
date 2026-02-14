@@ -1,1 +1,21 @@
 
+name: Demo cache
+
+run-name: running a variables_and_secrets file
+
+on: 
+  workflow_dispatch:
+    
+  
+
+jobs:
+  variable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6.2.0
+        with:
+         node-version: "20"
+    
+        
+  
