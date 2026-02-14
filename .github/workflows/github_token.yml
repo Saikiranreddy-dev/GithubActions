@@ -1,0 +1,25 @@
+name: workflow
+
+run-name: run of workflow commands file
+
+on: 
+  issues:
+    types: 
+      - opened
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    permissions: 
+      issues: write
+    steps:
+      - name: add comment
+        run: |
+        env:
+          Gh_Token: ${{github.token}}
+          Gh_repo: ${{github.repository}}
+          Number: ${{github.event.issue.number}}
+          Body: >
+            :sparkles: thankyou raising an issue :sparkles:
+          
+          
