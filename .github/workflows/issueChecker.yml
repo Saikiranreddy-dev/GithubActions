@@ -3,8 +3,7 @@ name: buiding issueChecker
 run-name: run of issue workflow
 
 on: 
-  issues: 
-    types: [opened]
+  
 
 permissions: 
   issues: write
