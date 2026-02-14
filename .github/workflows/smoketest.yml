@@ -1,5 +1,5 @@
 
-name: Demo cache
+name: cache
 
 run-name: running a variables_and_secrets file
 
@@ -29,7 +29,7 @@ jobs:
         id: caching-node-modules
         uses: actions/cache@v3
         with:
-          path: node-modules
+          path: ~/.npm
           key: ${{runner.os}}-cacheing-node-modules-${{hashFiles('**/package-lock.json')}}
           restore-key: |
             ${{runner.os}}-caching-node-modules
@@ -37,15 +37,15 @@ jobs:
         id: cache-browsers
         uses: actions/cache@v3
         with:
-          path: playwright-browser
+          path: ~/.cache/ms-playwright
           key: ${{runner.os}}-playwright-browser-${{hashFiles('**/package-lock.json')}}
           restore-key: |
             ${{runner.os}}-playwright-browser  
       - name: install dependicies
-        if: steps.caching-node-modules.outputs.cache-hit != true
+        #if: steps.caching-node-modules.outputs.cache-hit != true
         run: npm ci
       - name: install playwright browser
-        if: steps.cache-browsers.outputs.cache-hit != true
+        #if: steps.cache-browsers.outputs.cache-hit != true
         run: npx playwright install --with-deps
       - name: Upload CTRF report
         if: always()
