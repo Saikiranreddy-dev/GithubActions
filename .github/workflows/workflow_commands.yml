@@ -1,1 +1,24 @@
+name: conditionals
 
+run-name: run of workflow commands file
+
+on: 
+  workflow_dispatch: 
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkpout the repo
+        uses: actions/checkout@v4
+      - name: running a workflow command
+        run: |
+          logfile=$(.scripts/check_website.sh)
+          if [-s "$logfile"]; then
+            echo "## website vheck summary" >> $GITHUB_STEP_SUMMARY
+            echo "Reading results from: $logfile"  >> $GITHUB_STEP_SUMMARY
+            cat $logfile >> $GITHUB_STEP_SUMMARY
+          else
+            echo ":: error file=./scripts/check_website.sh"
+          fi
+          
