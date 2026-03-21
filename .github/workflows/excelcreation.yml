@@ -8,8 +8,8 @@ permissions:
 jobs:
   create-and-push:
     runs-on: ubuntu-latest
-
     steps:
+
       - uses: actions/checkout@v4
 
       - name: Create CSV
@@ -17,7 +17,53 @@ jobs:
           echo "Test,Status" > report.csv
           echo "Login,PASS" >> report.csv
           echo "Signup,FAIL" >> report.csv
-
+      - name: setup python
+        uses: action/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: install dependencies
+        run: |
+          pip install pandas openpyxl
+      - name: dummy excel
+        run: |
+          python -<<EOF
+          import pandas as pd
+          data={
+            "id":[1,2],
+            "name":["sai","ram"],
+            "email":["sai@test.com","ram@test.com"]
+          }
+          df=pd.DataFrame(data)
+          df.to_excel("dummy.xlsx",index=False)
+          print("excel created")
+          EOF
+      - name: run sqlite script
+        run: |
+          python -<<EOF
+          import sqlite3
+          import pandas as pd
+          conn=sqlite3.connect("test.db")
+          cursor=conn.cursor()
+          cursor.execute("""create table if not exists users(
+            id integer primary key,
+            name text,
+            email text
+          )""")
+          
+          df=pd.read_excel("dummy.xlsx")
+          df.to_sql("users,conn,if_exists="append",index=False)
+          result=cursor.execute("select * from users").fetchall()
+          print("Data in db:",result)
+          for row in result:
+            print(row)
+          
+          print("excel created")
+          EOF
+      - name: Upload DB as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sqlite-db
+          path: test.db
       - name: Push CSV to repo
         run: |
           git config --global user.name "github-actions"
