@@ -51,7 +51,7 @@ jobs:
           )""")
           
           df=pd.read_excel("dummy.xlsx")
-          df.to_sql("users,conn,if_exists="append",index=False)
+          df.to_sql("users",conn,if_exists="append",index=False)
           result=cursor.execute("select * from users").fetchall()
           print("Data in db:",result)
           for row in result:
@@ -64,11 +64,11 @@ jobs:
         with:
           name: sqlite-db
           path: test.db
-      - name: Push CSV to repo
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
+      #- name: Push CSV to repo
+      #  run: |
+       #   git config --global user.name "github-actions"
+       #   git config --global user.email "github-actions@github.com"
 
-          git add report.csv
-          git commit -m "Add CSV report"
-          git push
+       #   git add report.csv
+       #   git commit -m "Add CSV report"
+        #  git push
