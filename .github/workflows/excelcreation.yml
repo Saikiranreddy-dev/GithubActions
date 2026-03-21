@@ -30,8 +30,8 @@ jobs:
           import pandas as pd
           data={
             "id":[1,2],
-            "name":["sai","ram"],
-            "email":["sai@test.com","ram@test.com"]
+            "name":["test1","test2"],
+            "email":["test1@test.com","test2@test.com"]
           }
           df=pd.DataFrame(data)
           df.to_excel("dummy.xlsx",index=False)
